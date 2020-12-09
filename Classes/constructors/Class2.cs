@@ -4,7 +4,7 @@ using System.Text;
 
 namespace constructors
 {
-    class Class2
+    public class order
     {
     }
 }

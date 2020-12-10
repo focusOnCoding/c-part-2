@@ -7,24 +7,25 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-            var point = new Point(10, 20);
-            point.Move(new Point(40, 60));
-
-            Console.WriteLine("Point is at {0}, {1}", point.X, point.Y  );
-
-            // problem when passing null !!
-            point.Move(null); // theres no VELIDATION 
-
+        }
+        static void usePoints()
+        {
             // Global excaption handling
             try
             {
+                var point = new Point(10, 20);
+                point.Move(new Point(40, 60));
 
+                // problem when passing null !!
+                point.Move(null); // theres no VELIDATION 
+                Console.WriteLine("Point is at {0}, {1}", point.X, point.Y);
             }
             catch (Exception)
             {
 
-                throw;
+                Console.WriteLine("An unexpected error occured.");
             }
+
         }
     }
 }

@@ -7,7 +7,16 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-            
+            // i have to put this in to a try catch to handle error
+            //var number = int.Parse("abc"); // format error
+
+            int number; // this is what will out put the number
+            // with this will have it own exception handeling 
+            var result = int.TryParse("abc", out number);
+            if(result)
+                Console.WriteLine(number);
+            else
+                Console.WriteLine("Conversion Faild");
         }
         static void usePoints()
         {

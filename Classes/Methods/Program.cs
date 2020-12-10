@@ -7,6 +7,7 @@ namespace Methods
     {
         static void Main(string[] args)
         {
+            
         }
         static void usePoints()
         {
@@ -25,7 +26,18 @@ namespace Methods
 
                 Console.WriteLine("An unexpected error occured.");
             }
-
         }
+
+        // usin the params key work
+        static void useParams()
+        {
+            var calculator = new Calculator();
+            // now i can pass many params with out having overloads of this method
+            // params 
+            Console.WriteLine(calculator.Add(1, 2));
+            // ||
+            Console.WriteLine(calculator.Add(new int[] { 1, 2, 3, 4, 5 }));
+        }
+
     }
 }

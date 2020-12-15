@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Indexers
+{
+    public class Cookie
+    {
+        private readonly Dictionary<string, string> _dictionary;
+        public DateTime Expiry  { get; set; }
+
+        // this rapes the dictionary
+        public HttpCookie()
+        {
+            _dictionary = new Dictionary<string, string>();
+        }
+
+        public string this[string key]
+        {
+            get { return _dictionary[key]; }
+            set { _dictionary[key] = value;  }
+        }
+    }
+}
+
+
+using System;
+
+namespace Indexers
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var cookie = new Cookie();
+            cookie["name"] = "Siya";
+            Console.WriteLine(cookie["name"]);
+        }
+    }
+}

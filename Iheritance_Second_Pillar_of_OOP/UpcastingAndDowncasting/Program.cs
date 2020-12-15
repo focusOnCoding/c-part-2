@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 
 namespace UpcastingAndDowncasting
 {
@@ -6,12 +9,18 @@ namespace UpcastingAndDowncasting
     {
         static void Main(string[] args)
         {
-            Text text = new Text();
-            Shape shape = new Text(); // both these two classes point to the same place in memory
+            //StreamReader reader = new StreamReader(new MemoryStream());
+            var list = new ArrayList();
+            // because this takes any of the base objects as a param i can do this
+            list.Add(1);
+            list.Add("Siya");
+            list.Add(new Text());
+            // all the objects will be imiplectly converted to the base object class 
 
-            text.Width = 200;
-            shape.Width = 100;
-            Console.WriteLine(text.Width);
+            // a better way to do the above using a generic class
+            //[Upcasting]
+            var anotherList = new List<int>(); // so every item in this list will be an (int)
+            var shapes = new List<Shape>(); // list of shapes
         }
     }
 }

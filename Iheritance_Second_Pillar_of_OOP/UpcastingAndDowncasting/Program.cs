@@ -27,7 +27,7 @@ namespace UpcastingAndDowncasting
             // the above gives me a limited view coz its a shape object of type text
             //[Downcasting] or convert text to shape
             Text text = (Text)shape;
-            // now i have all access to the text class properties
+            // now i have all access to the text class properties  
 
         }
     }

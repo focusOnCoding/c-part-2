@@ -6,7 +6,7 @@ namespace ConstructorsAndIIheritance
     {
         static void Main(string[] args)
         {
-            var car = new Car();
+            var car = new Car("SD -ZN");
             Console.WriteLine("Hello World!");
         }
     }

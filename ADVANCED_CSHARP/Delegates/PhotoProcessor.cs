@@ -1,10 +1,11 @@
-﻿namespace Delegates // this is not extandeble but i can make is so using DELEGATES
+﻿using System;
+namespace Delegates // this is not extandeble but i can make is so using DELEGATES
 {
     public class PhotoProcessor
     {
         public delegate void PhototFilterHandler(Photo photo);
       //public void Proccess(string path)
-        public void Process(string path, PhototFilterHandler filterHandler)
+        public void Process(string path, Action<Photo> filterHandler)
         {
             // use .NET Delegates
             //System.Action<> {void}
@@ -14,10 +15,6 @@
 
             //var filters = new PhotoFilters();
             filterHandler(photo);
-
-            /* filters.ApplyBrightness(photo);
-               filters.ApplyContrast(photo);
-               filters.Resize(photo); */
 
             filterHandler(photo); // client disgns what he|she wants this method to act  
             photo.Save();

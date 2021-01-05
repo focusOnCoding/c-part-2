@@ -46,6 +46,27 @@ namespace Links
                                select b.Title;
             // or return the list of books (b)
 
+            // return single element from list
+            var singlebook = bookLinq.Single(b => b.Title == "ADO.Net MVC");
+            Console.WriteLine(singlebook.Title);
+
+            // if im not sure if element is there i can use {singleOrDefault} method
+            var singlebookOrDefaut = bookLinq.SingleOrDefault(b => b.Title == "ASP.Net MVC");
+            // null if not found
+
+            var first = bookLinq.FirstOrDefault(b => b.Title == "C# Advanced");
+
+            // paing DATA
+            var pageData = bookLinq.Skip(2).Take(3); // skip 3 elements and return 3
+            //when an Enumerable is returned i need to etarate through it to get its values npt just console log it
+            foreach (var page in pageData)
+                Console.WriteLine(page.Title);
+
+            // Count 
+            var count = bookLinq.Count();
+
+            // Max Price
+            var max = bookLinq.Max(b => b.Price);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Exception_Handling
 {
-     
+
     class Program
     {
         static void Main(string[] args)
@@ -13,7 +13,7 @@ namespace Exception_Handling
                 var calculator = new Calculator;
                 var reault = calculator.Divide(5, 0);
             }
-            // i can handle many different types of errors with catch
+            // i can handle many different types of errors with catch from most specific to most generic
             catch(DivideByZeroException ex) // from most spesific to most generic ↓↓
             {
                 Console.WriteLine("You cant divide by zero 0.");
@@ -38,21 +38,34 @@ namespace Exception_Handling
 
 
             // stream reader eg
-            StreamReader streamReader = null;
+            //StreamReader streamReader = null;
             try
             {
-                streamReader = new StreamReader(@"c:\file.zip");
-                var content = streamReader.ReadToEnd();  
+                using (var streamReader = new StreamReader(@"c:\file.zip"))
+                {
+                    var content = streamReader.ReadToEnd();
+                }
             }
             catch (Exception)
             {
                 Console.WriteLine("Sorry, an unexpexted error occurred");
             }
-            finally // always run
+            /*finally  this is no longer needed since im using the using key function
             {
                 if(streamReader != null)
                     streamReader.Dispose();
                 // close file and network resources
+            }*/
+
+
+            try
+            {
+                var api = new YouTubeAPI();
+                var videos = api.GetVideo("Dlamini");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
